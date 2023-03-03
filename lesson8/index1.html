@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .form-submib{
+            height: 200px;
+            width: 300px;
+            margin:40px auto;
+            border: 1px solid black;
+            padding: 20px;
+        }
+        .form-control{
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" name="myform" method="post">
+       <div class="form-submib">
+        <div class="form-control">
+            <label for="name">Enter name</label> <br>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="form-control">
+            <label for="age">Enter age</label> <br>
+            <input type="text" name="age" id="age">
+        </div>
+        <div class="form-control">
+            <input type="button" value="Check" onclick="check()">
+            <input type="reset" value="Clear">
+        </div>
+       </div>
+    </form>
+    <script>
+        // cách 1:
+        // function check() {
+        //     if (myform.age.value > 18) {
+        //         document.writeln(myform.name.value + ' ', 'you are eligible')
+        //     }
+        //     else {
+        //         document.writeln(myform.name.value + ' ', 'you are not aligible')
+        //     }
+        // }
+        // cách 2
+        function check(){
+            var name=document.getElementById("name").value;
+            var age=document.getElementById("age").value;
+            if(age<18){
+                document.writeln('bạn chưa đủ 18');
+            }else
+            document.writeln(name);
+        }
+
+    </script>
+</body>
+
+</html>
