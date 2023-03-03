@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng hồ bấm giờ với javascript</title>
+    <style>
+        .clock{
+            border: 1px solid rgb(187, 201, 91);
+            height: 150px;
+            width: 200px;
+            text-align: center;
+            line-height: 150px;
+            border-radius: 60%;
+           margin: auto;
+           margin-top: 10px;
+           margin-bottom: 10px;
+        }
+        .dong_ho{
+            border: 1px solid black;
+            text-align: center;
+            background-color: aquamarine;
+            width: 50%;
+            margin: auto;
+        }
+        input{
+            background-color: rgb(49, 194, 61);
+            border: 1px solid rgb(49, 194, 61);
+            margin-bottom: 10px;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <section class="dong_ho">
+        <form action="" method="post" name="frmclock">
+            <h1>Đồng hồ bấm giờ</h1>
+            <p class="clock"><span id="seconds">00</span>:<span id="tens">00</span></p>
+            <input type="button" value="start" name="start" id="start">
+            <input type="button" value="stop" name="stop" id="stop">
+            <input type="reset" value="reset" name="reset" id="reset">
+        </form>
+    </section>
+    <script>
+        window.onload = function () {
+           var seconds = 00;
+            var tens = 00;
+            var appendTens = document.getElementById("tens")
+            var appendSeconds = document.getElementById("seconds")
+            var Start = document.getElementById('start');
+            var stop = document.getElementById('stop');
+            var Reset = document.getElementById('reset');
+            var kq;
+            start.onclick = function () {
+                clearInterval(kq);
+                kq = setInterval(startTimer, 10);
+            }
+            stop.onclick = function () {
+                clearInterval(kq);
+            }
+            reset.onclick = function () {
+                clearInterval(kq);
+                tens = "00";
+                seconds = "00";
+                appendTens.innerHTML = tens;
+                appendSeconds.innerHTML = seconds;
+            }
+            function startTimer() {
+                tens++;
+                if (tens <= 9) {
+                    appendTens.innerHTML = "0" + tens;
+                }
+                if (tens > 9) {
+                    appendTens.innerHTML = tens;
+
+                }
+                if (tens > 99) {
+                    console.log("seconds");
+                    seconds++;
+                    appendSeconds.innerHTML = "0" + seconds;
+                    tens = 0;
+                    appendTens.innerHTML = "0" + 0;
+                }
+                if (seconds > 9) {
+                    appendSeconds.innerHTML = seconds;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
